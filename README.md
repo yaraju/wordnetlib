@@ -34,7 +34,7 @@ dependencies {
 In Maven:
 
 First add the repo at "https://jitpack.io"
-Then, in your .pom file:
+Then, in your pom.xml file:
  
  ```xml
  <dependency>
