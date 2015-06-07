@@ -38,9 +38,8 @@ Then, in your .pom file:
  
  ```xml
  <dependency>
-    <groupId>de.jetwick</groupId>
-    <artifactId>snacktory</artifactId>
-    <version>1.1</version>
-    <!-- or if you prefer the latest build <version>1.2-SNAPSHOT</version> -->
+    <groupId>com.github.yaraju</groupId>
+    <artifactId>wordnetlib</artifactId>
+    <version>1.0.0</version>
  </dependency>
  ```
