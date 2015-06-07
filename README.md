@@ -20,8 +20,9 @@ sudo apt-get install wordnet
 
 NOTE: If you're using a different *nix flavor, the current code expects the Wordnet installation to be at /usr/share/wordnet.
 
-Then, include the repo.
-In Gradle:
+Then, include the dependency.
+
+### Gradle (build.gradle):
 ```
 repositories { 
     maven { url "https://jitpack.io" }
@@ -31,10 +32,9 @@ dependencies {
 }
 ```
 
-In Maven:
+### Maven (pom.xml):
 
 First add the repo at "https://jitpack.io"
-Then, in your pom.xml file:
  
  ```xml
  <dependency>
