@@ -27,7 +27,7 @@ repositories {
     maven { url "https://jitpack.io" }
 }
 dependencies {
-     compile 'com.github.jitpack:gradle-simple:1.0'
+     compile 'com.github.yaraju:wordnetlib:1.0.0'
 }
 ```
 
