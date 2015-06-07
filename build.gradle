@@ -3,6 +3,7 @@ apply plugin: 'maven'
 
 sourceCompatibility = 1.5
 version = '1.0'
+group = 'com.github.yaraju'
 
 repositories {
     mavenCentral()
