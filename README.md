@@ -13,9 +13,12 @@ The software stands under Apache 2 License and comes with NO WARRANTY
 
 First, install the WordNet software on your *nix machine:
 
+On Ubuntu/Debian:
 ```
 sudo apt-get install wordnet
 ```
+
+NOTE: If you're using a different *nix flavor, the current code expects the Wordnet installation to be at /usr/share/wordnet.
 
 Then, include the repo.
 In Gradle:
