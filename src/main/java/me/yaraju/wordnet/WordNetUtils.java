@@ -152,6 +152,45 @@ public class WordNetUtils {
         return hypernyms;
     }
 
+    /**
+     * Retrieve a set of hyponyms for a word. Use only the first sense if useFirstSense flag is true.
+     */
+    public static HashSet<String> getHyponyms(IDictionary dict, String word, String posTag, boolean firstSenseOnly) {
+
+        HashSet<String> hypernyms = new HashSet<String>();
+
+        POS pos = POS.getPartOfSpeech(posTag.charAt(0));
+        if(pos == null) {
+            return hypernyms;
+        }
+
+        IIndexWord iIndexWord = dict.getIndexWord(word, pos);
+        if(iIndexWord == null) {
+            return hypernyms; // no senses found
+        }
+
+        // iterate over senses
+        for(IWordID iWordId : iIndexWord.getWordIDs()) {
+            IWord iWord1 = dict.getWord(iWordId);
+            ISynset iSynset = iWord1.getSynset();
+
+            // multiple hypernym chains are possible for a synset
+            for(ISynsetID iSynsetId : iSynset.getRelatedSynsets(Pointer.HYPONYM)) {
+                List<IWord> iWords = dict.getSynset(iSynsetId).getWords();
+                for(IWord iWord2: iWords) {
+                    String lemma = iWord2.getLemma();
+                    hypernyms.add(lemma.replace(' ', '_')); // also get rid of spaces
+                }
+            }
+
+            if(firstSenseOnly) {
+                break;
+            }
+        }
+
+        return hypernyms;
+    }
+
     public static HashSet<String> getHyperHypernyms(IDictionary dict, String word, String posTag, boolean firstSenseOnly) {
 
         HashSet<String> hypernyms = new HashSet<String>();
